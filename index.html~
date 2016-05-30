@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="js/hello.min.js"></script>
+    <link href="css/zocial.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<img src="img/banner.png" width="100%"/>
+<button class="zocial facebook" onclick="hello('facebook').login()">Login with facebook</button>
+<button class="zocial google" onclick="hello('github').login()">Login with google</button>
+
+<script>
+
+    hello.on('auth.login', function(auth) {
+
+        // Call user information, for the given network
+        hello(auth.network).api('/me').then(function(r) {
+            // Inject it into the container
+            var label = document.getElementById('profile_' + auth.network);
+            if (!label) {
+                label = document.createElement('div');
+                label.id = 'profile_' + auth.network;
+                document.getElementById('profile').appendChild(label);
+            }
+            label.innerHTML = '<img src="' + r.thumbnail + '" /> Hey ' + r.name;
+        });
+    });
+
+    hello.init({
+        facebook: 868589679887559,
+        google:'',
+        github: 'e939d49592e2ae5feebf'
+            }, {redirect_uri: 'success.html'});
+
+
+    $(function(){
+        $(".element").typed({
+            strings: ["It seems you are upto a mess !!", "Okay ! lets begin ! ","Login with any of the accounts.."],
+            typeSpeed: 1
+        });
+    });
+</script>
+<div class="element" align="center"></div>
+</body>
+</html>
+
+
