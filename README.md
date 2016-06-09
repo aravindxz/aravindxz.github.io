@@ -13,3 +13,5 @@ A simple canvas effect that powered by the Pubnub library to send and to recieve
 
 ###Licensing
 All the code that I have written is made under the **GNU General Public License** and the other are upto the corresponding authors.
+
+[![support](https://baikal.io/badges/aravindxz/social-dude)](https://baikal.io/aravindxz/social-dude)
